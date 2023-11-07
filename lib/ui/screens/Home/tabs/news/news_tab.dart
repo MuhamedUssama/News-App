@@ -4,8 +4,15 @@ import 'package:news_app/data/models/sources_response.dart';
 import 'package:news_app/ui/utils/app_colors.dart';
 import 'package:news_app/ui/utils/app_theme.dart';
 
-class NewsTab extends StatelessWidget {
+class NewsTab extends StatefulWidget {
   const NewsTab({super.key});
+
+  @override
+  State<NewsTab> createState() => _NewsTabState();
+}
+
+class _NewsTabState extends State<NewsTab> {
+  int currentTabIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +45,15 @@ class NewsTab extends StatelessWidget {
         children: [
           const SizedBox(height: 16),
           TabBar(
+              onTap: (index) {
+                currentTabIndex = index;
+                setState(() {});
+              },
               isScrollable: true,
               indicatorColor: Colors.transparent,
               tabs: sourcesList
-                  .map((source) => buildTapWidget(source.name ?? "", false))
+                  .map((source) => buildTapWidget(source.name ?? "",
+                      currentTabIndex == sourcesList.indexOf(source)))
                   .toList()),
           const SizedBox(height: 16),
           Expanded(
