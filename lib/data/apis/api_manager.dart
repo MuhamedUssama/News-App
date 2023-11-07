@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:news_app/data/models/sources_response.dart';
 
 class ApiManager {
-  static getSources() async {
+  static Future<List<Sources>> getSources() async {
     const String baseUrl = "https://newsapi.org";
     const String endPoint = "v2/top-headlines/sources";
     const String apiKey = "2d5aeba7b893498aae94c7d47aba36cb";

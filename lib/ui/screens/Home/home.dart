@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/data/apis/api_manager.dart';
+
+import 'package:news_app/ui/screens/Home/tabs/news/news_tab.dart';
+import 'package:news_app/ui/utils/app_colors.dart';
+import 'package:news_app/ui/utils/app_theme.dart';
 
 class HomeDesign extends StatefulWidget {
   static const routeName = "home";
@@ -12,9 +15,24 @@ class HomeDesign extends StatefulWidget {
 class _HomeDesignState extends State<HomeDesign> {
   @override
   Widget build(BuildContext context) {
-    ApiManager.getSources();
+    double height = MediaQuery.of(context).size.height;
+    // double width = MediaQuery.of(context).size.width;
+
+    // ApiManager.getSources();
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text("News App", style: AppTheme.appBarAndCategoriesTitle),
+        centerTitle: true,
+        backgroundColor: AppColors.primary,
+        elevation: 0,
+        toolbarHeight: height * 0.085,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(22),
+          ),
+        ),
+      ),
+      body: const NewsTab(),
     );
   }
 }
