@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/data/apis/api_manager.dart';
 import 'package:news_app/data/models/sources_response.dart';
+import 'package:news_app/ui/screens/Home/tabs/news/article_list.dart';
 import 'package:news_app/ui/utils/app_colors.dart';
 import 'package:news_app/ui/utils/app_theme.dart';
 
@@ -59,9 +60,9 @@ class _NewsTabState extends State<NewsTab> {
           Expanded(
             child: TabBarView(
               children: sourcesList
-                  .map((source) => Container(
-                        color: Colors.blue,
-                      ))
+                  .map(
+                    (source) => ArticleList(),
+                  )
                   .toList(),
             ),
           )
