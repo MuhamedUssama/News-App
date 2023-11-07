@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:news_app/ui/screens/Home/tabs/news/news_tab.dart';
+import 'package:news_app/ui/utils/app_assets.dart';
 import 'package:news_app/ui/utils/app_colors.dart';
 import 'package:news_app/ui/utils/app_theme.dart';
 
@@ -28,11 +29,18 @@ class _HomeDesignState extends State<HomeDesign> {
         toolbarHeight: height * 0.085,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(22),
+            bottom: Radius.circular(50),
           ),
         ),
       ),
-      body: const NewsTab(),
+      body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(AppAssets.background),
+              fit: BoxFit.fill,
+            ),
+          ),
+          child: const NewsTab()),
     );
   }
 }
