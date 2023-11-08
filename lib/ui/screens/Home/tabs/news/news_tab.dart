@@ -5,6 +5,7 @@ import 'package:news_app/ui/screens/Home/tabs/news/article_list.dart';
 import 'package:news_app/ui/utils/app_colors.dart';
 import 'package:news_app/ui/utils/app_theme.dart';
 import 'package:news_app/ui/widgets/error_widget.dart';
+import 'package:news_app/ui/widgets/loading_widget.dart';
 
 class NewsTab extends StatefulWidget {
   const NewsTab({super.key});
@@ -31,9 +32,7 @@ class _NewsTabState extends State<NewsTab> {
             );
           } else {
             return const Center(
-              child: CircularProgressIndicator(
-                color: AppColors.primary,
-              ),
+              child: LoadingWidget(),
             );
           }
         });
@@ -61,7 +60,7 @@ class _NewsTabState extends State<NewsTab> {
             child: TabBarView(
               children: sourcesList
                   .map(
-                    (source) => ArticleList(),
+                    (source) => ArticleList(sources: source),
                   )
                   .toList(),
             ),

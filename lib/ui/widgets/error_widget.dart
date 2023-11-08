@@ -15,7 +15,7 @@ class BuildErrorWidget extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Container(
           height: height,
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(22),
             color: AppColors.white,

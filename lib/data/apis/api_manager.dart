@@ -4,10 +4,10 @@ import 'package:news_app/data/models/article_response.dart';
 import 'package:news_app/data/models/sources_response.dart';
 
 class ApiManager {
-  static const String baseUrl = "https://newsapi.org";
   static const String apiKey = "2d5aeba7b893498aae94c7d47aba36cb";
 
   static Future<List<Sources>> getSources() async {
+    const String baseUrl = "https://newsapi.org";
     const String endPoint = "v2/top-headlines/sources";
 
     try {
@@ -30,6 +30,7 @@ class ApiManager {
   }
 
   static Future<List<Articles>> getArticls(String sourceId) async {
+    const String baseUrl = "newsapi.org";
     const String endPoint = "v2/everything";
     try {
       Uri url =
