@@ -9,15 +9,15 @@ abstract class AppTheme {
       fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.white);
 
   static const TextStyle articalText = TextStyle(
-      fontSize: 14, fontWeight: FontWeight.w500, color: AppColors.textColor);
+      fontSize: 16, fontWeight: FontWeight.w500, color: AppColors.textColor);
 
   static const TextStyle sourcesUnderArticle = TextStyle(
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: FontWeight.w400,
       color: AppColors.sourcesUnderArticle);
 
   static const TextStyle timeText = TextStyle(
-      fontSize: 13, fontWeight: FontWeight.w400, color: AppColors.timeColor);
+      fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.timeColor);
 
   static const TextStyle drawerText = TextStyle(
       fontSize: 24,

@@ -17,9 +17,7 @@ class _HomeDesignState extends State<HomeDesign> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    // double width = MediaQuery.of(context).size.width;
 
-    // ApiManager.getSources();
     return Scaffold(
       appBar: AppBar(
         title: const Text("News App", style: AppTheme.appBarAndCategoriesTitle),
@@ -37,7 +35,7 @@ class _HomeDesignState extends State<HomeDesign> {
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(AppAssets.background),
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
             ),
           ),
           child: const NewsTab()),
