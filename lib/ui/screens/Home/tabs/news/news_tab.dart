@@ -4,6 +4,7 @@ import 'package:news_app/data/models/sources_response.dart';
 import 'package:news_app/ui/screens/Home/tabs/news/article_list.dart';
 import 'package:news_app/ui/utils/app_colors.dart';
 import 'package:news_app/ui/utils/app_theme.dart';
+import 'package:news_app/ui/widgets/error_widget.dart';
 
 class NewsTab extends StatefulWidget {
   const NewsTab({super.key});
@@ -17,17 +18,16 @@ class _NewsTabState extends State<NewsTab> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     return FutureBuilder(
         future: ApiManager.getSources(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return buildTabs(snapshot.data!);
           } else if (snapshot.hasError) {
-            return Center(
-              child: Text(
-                snapshot.error.toString(),
-                style: AppTheme.articleDescriptionText,
-              ),
+            return BuildErrorWidget(
+              height: height * 0.3,
+              errorMessage: snapshot.error.toString(),
             );
           } else {
             return const Center(

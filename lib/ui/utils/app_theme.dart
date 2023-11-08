@@ -34,4 +34,7 @@ abstract class AppTheme {
 
   static const TextStyle articleDescriptionText = TextStyle(
       fontSize: 13, fontWeight: FontWeight.w300, color: AppColors.textColor);
+
+  static const TextStyle errorText = TextStyle(
+      fontSize: 18, fontWeight: FontWeight.w500, color: AppColors.textColor);
 }
