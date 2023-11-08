@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:news_app/ui/screens/Home/tabs/categories/category_tab.dart';
 import 'package:news_app/ui/screens/Home/tabs/news/news_tab.dart';
 import 'package:news_app/ui/utils/app_assets.dart';
 import 'package:news_app/ui/utils/app_colors.dart';
@@ -35,10 +35,10 @@ class _HomeDesignState extends State<HomeDesign> {
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(AppAssets.background),
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
-          child: const NewsTab()),
+          child: const CategoryTab()),
     );
   }
 }

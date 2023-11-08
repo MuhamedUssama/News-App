@@ -5,6 +5,9 @@ abstract class AppTheme {
   static const TextStyle appBarAndCategoriesTitle = TextStyle(
       fontSize: 22, fontWeight: FontWeight.w400, color: AppColors.white);
 
+  static const TextStyle categoryHead = TextStyle(
+      fontSize: 22, fontWeight: FontWeight.w700, color: AppColors.categoryText);
+
   static const TextStyle sourcesTab = TextStyle(
       fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.white);
 
