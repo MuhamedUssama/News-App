@@ -4,7 +4,8 @@ import 'package:news_app/ui/utils/app_theme.dart';
 import 'package:news_app/ui/widgets/category_widget.dart';
 
 class CategoryTab extends StatelessWidget {
-  const CategoryTab({super.key});
+  final Function(CategoryDM) onCategoryClicked;
+  const CategoryTab({super.key, required this.onCategoryClicked});
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +27,18 @@ class CategoryTab extends StatelessWidget {
             child: GridView.builder(
                 itemCount: CategoryDM.categories.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: width * 0.05,
-                    mainAxisSpacing: height * 0.02),
+                  crossAxisCount: 2,
+                  crossAxisSpacing: width * 0.05,
+                  mainAxisSpacing: height * 0.02,
+                ),
                 itemBuilder: (context, index) {
-                  return CategoryWidget(
-                    categoryDM: CategoryDM.categories[index],
+                  return InkWell(
+                    onTap: () {
+                      onCategoryClicked(CategoryDM.categories[index]);
+                    },
+                    child: CategoryWidget(
+                      categoryDM: CategoryDM.categories[index],
+                    ),
                   );
                 }),
           )

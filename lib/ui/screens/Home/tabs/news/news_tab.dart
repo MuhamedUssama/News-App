@@ -8,7 +8,8 @@ import 'package:news_app/ui/widgets/error_widget.dart';
 import 'package:news_app/ui/widgets/loading_widget.dart';
 
 class NewsTab extends StatefulWidget {
-  const NewsTab({super.key});
+  final String categoryId;
+  const NewsTab({super.key, required this.categoryId});
 
   @override
   State<NewsTab> createState() => _NewsTabState();
@@ -21,7 +22,7 @@ class _NewsTabState extends State<NewsTab> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return FutureBuilder(
-        future: ApiManager.getSources(),
+        future: ApiManager.getSources(widget.categoryId),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return buildTabs(snapshot.data!);

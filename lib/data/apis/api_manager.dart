@@ -6,12 +6,13 @@ import 'package:news_app/data/models/sources_response.dart';
 class ApiManager {
   static const String apiKey = "2d5aeba7b893498aae94c7d47aba36cb";
 
-  static Future<List<Sources>> getSources() async {
+  static Future<List<Sources>> getSources(String categoryId) async {
     const String baseUrl = "https://newsapi.org";
     const String endPoint = "v2/top-headlines/sources";
 
     try {
-      Uri url = Uri.parse("$baseUrl/$endPoint?apiKey=$apiKey");
+      Uri url =
+          Uri.parse("$baseUrl/$endPoint?apiKey=$apiKey&category=$categoryId");
       http.Response response = await http.get(url);
       Map json = jsonDecode(response.body);
 
@@ -32,6 +33,7 @@ class ApiManager {
   static Future<List<Articles>> getArticls(String sourceId) async {
     const String baseUrl = "newsapi.org";
     const String endPoint = "v2/everything";
+
     try {
       Uri url =
           Uri.https(baseUrl, endPoint, {"apiKey": apiKey, "sources": sourceId});

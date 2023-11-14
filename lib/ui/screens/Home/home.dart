@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/data/models/category_model.dart';
 import 'package:news_app/ui/screens/Home/tabs/categories/category_tab.dart';
 import 'package:news_app/ui/screens/Home/tabs/news/news_tab.dart';
 import 'package:news_app/ui/utils/app_assets.dart';
@@ -14,6 +15,15 @@ class HomeDesign extends StatefulWidget {
 }
 
 class _HomeDesignState extends State<HomeDesign> {
+  late Widget currentClick;
+
+  @override
+  void initState() {
+    super.initState();
+
+    currentClick = CategoryTab(onCategoryClicked: onCategoryClick);
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -38,7 +48,12 @@ class _HomeDesignState extends State<HomeDesign> {
               fit: BoxFit.fill,
             ),
           ),
-          child: const CategoryTab()),
+          child: currentClick),
     );
+  }
+
+  onCategoryClick(CategoryDM categoryDM) {
+    currentClick = NewsTab(categoryId: categoryDM.id);
+    setState(() {});
   }
 }
